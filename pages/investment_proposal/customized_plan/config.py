@@ -1,13 +1,18 @@
-
-class CustomizedPlanLocators:
-    PRIMARY_REASON_COMBO = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[6]'
+class CustomizedFlowData: 
+    AGE = '25'
     
+
+class ELEMENTS:
+
+    
+    PRIMARY_REASON_COMBO = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[6]'
+
     # PRIMARY_REASON_COMBO2 = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View[2]'
     PRIMARY_REASON_OPTION_ID = 'react-select-2-option-0'
     PRIMARY_REASON_ITEM_XPATH = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[6]/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.TextView[1]'
-    
-    
-    
+
+
+
     AGE_FIELD = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[7]/android.view.View/android.widget.EditText'
     MONTHLY_INCOME_COMBO = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[8]/android.view.View/android.view.View/android.view.View/android.view.View[2]'
     MONTHLY_INCOME_ITEM_XPATH = '//*[@resource-id="react-select-3-option-0"]'
