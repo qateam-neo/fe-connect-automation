@@ -10,23 +10,32 @@ class SwipeHelper:
         self.duration = 800
 
 
-    def swipe_from_bottom_to_top(self):
+    def swipe_from_bottom_to_top(self,scale=0.8):
+        scale = min(scale, 0.8)
+        scale = max(scale, 0.2)
+
         # Calculate the starting and ending coordinates for the swipe
-        start_x = self.screen_size['width'] // 2
+        # start_x = self.screen_size['width'] // 2
+        start_x = self.screen_size['width'] * 0.05
         start_y = self.screen_size['height'] * 0.2
-        end_x = self.screen_size['width'] // 2
-        end_y = self.screen_size['height'] * 0.8
+        # end_x = self.screen_size['width'] // 2
+        end_x = self.screen_size['width'] * 0.05
+        end_y = self.screen_size['height'] * scale
 
         # Swipe from the starting to the ending coordinates
         self.driver.swipe(start_x, start_y, end_x, end_y, self.duration)
 
-    def swipe_from_top_to_bottom(self):
+    def swipe_from_top_to_bottom(self,scale=0.4):
+        scale = min(scale, 0.8)
 
         # Calculate the starting and ending coordinates for the swipe
-        start_x = self.screen_size['width'] // 2
-        start_y = self.screen_size['height'] * 0.8
-        end_x = self.screen_size['width'] // 2
-        end_y = self.screen_size['height'] * 0.2
+        # start_x = self.screen_size['width'] // 2
+        start_x = self.screen_size['width'] * 0.05
+
+        start_y = self.screen_size['height'] * 0.8 
+        # end_x = self.screen_size['width'] // 2
+        end_x = self.screen_size['width'] * 0.05
+        end_y = self.screen_size['height'] * scale
 
         # Swipe from the starting to the ending coordinates
         self.driver.swipe(start_x, start_y, end_x, end_y, self.duration)

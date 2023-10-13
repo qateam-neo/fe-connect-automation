@@ -15,5 +15,5 @@ class ContractPageLocators:
     SIGN_LAST_PAGE_BUTTON = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.widget.Button'
     
     END_OF_DOCUMENT_BUTTON = '//*[@resource-id="end-of-document-btn-finish-mobile"]'
-    CLOSE_APP_BUTTON = 'com.example.myapplication:id/closeButton'
+    CLOSE_APP_BUTTON = 'com.example.myapplication.dynamic:id/closeButton'
     CONFIRM_CLOSE_BUTTON = 'android:id/button1'
