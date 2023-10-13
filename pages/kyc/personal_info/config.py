@@ -9,7 +9,7 @@ class PersonalInfo:
     CIVIL_ID_EXPIRY_DATE = '12/12/2031'
     MOTHER_FULL_NAME = 'Mother'
     CHILDREN_NAME = 'Children 1'
-    EMAIL_ADDRESS = 'petra.ashkar+automation1@neo.ae'
+    EMAIL_ADDRESS = 'roy.braish+automation1@neo.ae'
     CONTACT_MOBILE_NUMBER = '55555555'
     ADDRESS_BLOCK_FIELD = '1'
     STREET_FIELD = 'B'
@@ -17,3 +17,4 @@ class PersonalInfo:
     HOUSE_FIELD = 'D'
     PASSPORT_NUMBER = '123'
     PASSPORT_EXPIRY_DATE = '01/01/2040'
+    

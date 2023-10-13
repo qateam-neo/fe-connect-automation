@@ -1,22 +1,86 @@
-class EmploymentInfoPageLocators:
-    EMPLOYMENT_SECTION = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[6]/android.view.View[1]'
-    EMPLOYMENT_COMBO = '//*[@resource-id="react-select-9-placeholder"]' 
-    EMPLOYMENT_ITEM = '//*[@resource-id="react-select-9-option-1"]' 
+from appium.webdriver.common.appiumby import AppiumBy
 
-    EMPLOYMENT_SECTION_COMPLETED = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[6]/android.view.View[1]/android.widget.TextView[1]'
+class EmploymentInfoPageIDs:
+    SCREEN_TRIGGER_IDENTIFICATION={
+        "locator":AppiumBy.XPATH,
+        "value":'//*[contains(@text,"Income information")]',
+        "text": None
+    }
+    
+    EMPLOYMENT_SECTION = {
+        "locator":AppiumBy.XPATH,
+        "value":'//android.widget.TextView[contains(@text,"Employment")]',
+        "text":None
+    }
+    EMPLOYMENT_COMBO =  {
+        "locator":AppiumBy.XPATH,
+        "value":'//*[@resource-id="react-select-9-placeholder"]' ,
+        "text":None
+    }
+    EMPLOYMENT_ITEM = {
+        "locator":AppiumBy.XPATH,
+        "value":'//*[@resource-id="react-select-9-option-1"]' ,
+        "text":None
+    } 
 
-    INCOME_INFORMATION_SECTION ='/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[6]/android.view.View[2]/android.widget.TextView[1]'
+    # EMPLOYMENT_SECTION_COMPLETED = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[6]/android.view.View[1]/android.widget.TextView[1]'
+    EMPLOYMENT_SECTION_COMPLETED = {
+        "locator":AppiumBy.XPATH,
+        "value":'//android.widget.TextView[contains(@text,"Employment")]',
+        "text":None
+    }
+    BOARD_MEMBERSHIP_SWITCH_BUTTON= {
+        "locator":AppiumBy.XPATH,
+        "value":'//android.widget.TextView[contains(@text,"Board")]',
+        "text":None
+    }
 
-    PRIMARY_OBJECTIVE_COMBO = '//*[@resource-id="react-select-10-placeholder"]' 
-    PRIMARY_OBJECTIVE_ITEM = '//*[@resource-id="react-select-10-option-3"]' 
-    ANNUAL_INCOME_COMBO = '//*[@resource-id="react-select-11-placeholder"]' 
+    INCOME_INFORMATION_SECTION = {
+        "locator":AppiumBy.XPATH,
+        "value":'//android.widget.TextView[contains(@text,"Income information")]',
+        "text":None
+    }
 
+    PRIMARY_OBJECTIVE_COMBO =  {
+        "locator":AppiumBy.XPATH,
+        "value":'//*[@resource-id="react-select-10-placeholder"]',
+        "text":None
+    }
+    PRIMARY_OBJECTIVE_ITEM =  {
+        "locator":AppiumBy.XPATH,
+        "value":'//*[@resource-id="react-select-10-option-3"]',
+        "text":None
+    }
+    ANNUAL_INCOME_COMBO =  {
+        "locator":AppiumBy.XPATH,
+        "value":'//*[@resource-id="react-select-11-placeholder"]',
+        "text":None
+    }
+ 
+    ANNUAL_INCOME_ITEM ={
+        "locator":AppiumBy.XPATH,
+        "value":'//*[@resource-id="react-select-11-option-1"]' ,
+        "text":None
+    } 
 
-    ANNUAL_INCOME_ITEM = '//*[@resource-id="react-select-11-option-1"]' 
+    SOURCE_OF_INCOME_COMBO ={
+        "locator":AppiumBy.XPATH,
+        "value": '//*[@resource-id="react-select-12-placeholder"]',
+        "text":None
+    }  
 
-    SOURCE_OF_INCOME_COMBO = '//*[@resource-id="react-select-12-placeholder"]'
+    SOURCE_OF_INCOME_ITEM ={
+        "locator":AppiumBy.XPATH,
+        "value": '//*[@resource-id="react-select-12-option-1"]',
+        "text":None
+    }  
 
-    SOURCE_OF_INCOME_ITEM = '//*[@resource-id="react-select-12-option-1"]'
+    DETAILS_OF_INCOME_TOP={
+        "locator":AppiumBy.XPATH,
+        "value": '//android.view.View[contains(@text,"Source of income")]' ,
+        "text":None
+    }
+    
     # SOURCE_OF_INCOME_ITEM2 = '//*[@resource-id="react-select-12-option-4"]'
     
     # DETAILS_OF_INCOME_TEXT = '//*[@resource-id="income_details"]' 
@@ -27,8 +91,16 @@ class EmploymentInfoPageLocators:
     DETAILS_OF_INCOME_TEXT = 'income_details'
     
     # SCROLL TO BOTTOM
-    TOTAL_VALUE_COMBO = '//*[@resource-id="react-select-13-placeholder"]'
-    TOTAL_VALUE_ITEM = '//*[@resource-id="react-select-13-option-4"]'
+    TOTAL_VALUE_COMBO ={
+        "locator":AppiumBy.XPATH,
+        "value":  '//*[@resource-id="react-select-13-placeholder"]',
+        "text":None
+    }  
+    TOTAL_VALUE_ITEM ={
+        "locator":AppiumBy.XPATH,
+        "value": '//*[@resource-id="react-select-13-option-4"]',
+        "text":None
+    }  
     VALUE_OF_TRANSACTIONS_COMBO = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[4]/android.widget.TextView[2]'
     VALUE_OF_TRANSACTIONS_ITEM = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.widget.TextView[3]'
     VALUE_OF_ASSETS_COMBO = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.widget.TextView[2]'

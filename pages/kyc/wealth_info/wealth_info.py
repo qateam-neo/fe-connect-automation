@@ -1,9 +1,9 @@
 import time
 
 from pages.base_page import BasePage
-from pages.kyc.personal_info.wealth_info.wealth_info_config import WealthInfo
-from pages.kyc.personal_info.wealth_info.wealth_info_page_locators import \
-    WealthInfoPageLocators
+from pages.kyc.wealth_info.wealth_info_config import WealthInfo
+from pages.kyc.wealth_info.wealth_info_page_locators import WealthInfoPageLocators
+
 
 
 class WealthInfoPage(BasePage):

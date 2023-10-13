@@ -1,5 +1,12 @@
+from appium.webdriver.common.appiumby import AppiumBy
+
 class WealthInfoPageLocators:
-    WEALTH_INFORMATION_SECTION = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[6]/android.view.View/android.widget.TextView[1]'
+    WEALTH_INFORMATION_SECTION  = {
+        "locator":AppiumBy.XPATH,
+        "value":'//*[@resource-id="std-section"]',
+        "index":1,
+        "text": None
+    }
     PURPOSE_COMBO = '//*[@resource-id="react-select-14-placeholder"]'
     PURPOSE_ITEM = '//*[@resource-id="react-select-14-option-3"]'
     LEVEL_OF_INVESTMENT_KNOWLEDGE_COMBO = '//*[@resource-id="react-select-15-placeholder"]'
