@@ -10,8 +10,11 @@ class HistoricalPerformanceFlow(BasePage):
         super().__init__(driver)
 
     def start(self):
-        self.swipe_helper.swipe_from_top_to_bottom()
-        self.click_element(ELEMENTS.CONTINUE_BUTTON)
+        # if not self.click_element(ELEMENTS.CONTINUE_BUTTON):
+        #     self.swipe_helper.swipe_from_top_to_bottom()
+        while self.wait_and_get_element_by_text("Investment Plan") or self.wait_and_get_element_by_text("top tier US"):
+            self.click_hidden_element(ELEMENTS.CONTINUE_BUTTON)
+        print("TEST")
 
 
     # def click_customized_plan(self):

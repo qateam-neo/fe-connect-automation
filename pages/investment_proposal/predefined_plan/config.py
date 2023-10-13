@@ -9,13 +9,13 @@ class ELEMENTS:
     
     
     CONSERVATIVE_OPTION={
-        "locator":By.CLASS_NAME,
-        "value":"android.widget.TextView",
-        "text":"Conservative"
+        "locator":By.XPATH,
+        "value":"//android.widget.TextView[contains(@text, 'Conservative')]",
+        "text":None
     }
     
     CONTINUE_BUTTON={
-        "locator":By.CLASS_NAME,
-        "value":"android.widget.Button",
-        "text":"Continue"
+        "locator":By.XPATH,
+        "value":"//android.widget.Button[contains(@text, 'Continue')]",
+        "text":None
     }

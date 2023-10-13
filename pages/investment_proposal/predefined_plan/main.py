@@ -12,8 +12,8 @@ class PredefinedFlow(BasePage):
 
     def start(self):
         # self.click_element(self.choice)
-        self.click_element(ELEMENTS.CONSERVATIVE_OPTION,sleep=1)
-        self.click_element(ELEMENTS.CONTINUE_BUTTON)
+        self.click_hidden_element(ELEMENTS.CONSERVATIVE_OPTION)
+        self.click_hidden_element(ELEMENTS.CONTINUE_BUTTON)
 
 
     # def click_customized_plan(self):
