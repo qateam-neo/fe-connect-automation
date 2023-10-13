@@ -32,7 +32,112 @@ class BasePage:
         element = wait.until(EC.visibility_of_element_located(element_locator))
         element.click()
 
+    @handle_exceptions
+    def is_element_visible(self,element,timeout=1,sleep=None):
+        return True if self.get_element(element,timeout,sleep) is not False else False 
 
+    @handle_exceptions
+    def get_element(self, element,timeout=2,sleep_time=None,parent=None):
+        if sleep_time is not None:
+            time.sleep(sleep_time)
+            
+        try:
+            element["parent"]
+            parents=self.driver.find_elements(element["parent"]["locator"],element["parent"]["value"])
+            parent=parents[element["parent"]["index"]]
+            if element["text"] is not None:
+                for elem in elements:
+                    if  element["text"] in elem.text:
+                        return elem
+                return False
+            else:
+                return parent.find_element(element["locator"],element["value"])
+        except: pass
+        
+        if None not in [element["locator"] , element["value"]]:
+            if timeout is not None:
+                WebDriverWait(self.driver,timeout).until(EC.visibility_of_element_located((element["locator"],element["value"])))
+            elements=self.driver.find_elements(element["locator"],element["value"])
+            try:
+                element["index"]
+                return elements[element["index"]]
+            except: pass
+            if element["text"] is not None:
+                for elem in elements:
+                    if  element["text"] in elem.text:
+                        return elem
+                return False
+            else:
+                return elements[0]
+        elif element["text"] is not None: 
+            return self.wait_and_get_element_by_text()
+        else: 
+            ValueError ("Element doesn't have a locator or value or text.... ")
+
+    @handle_exceptions
+    def click_element(self, element,timeout=2,sleep=None):
+        elem=self.get_element(element,timeout,sleep)
+        elem.click()
+
+
+    @handle_exceptions
+    def get_hidden_element(self,element,top_to_bottom=True):
+        count=0
+        # # self.swipe_helper.swipe_from_bottom_to_top(scale=0.25)
+        # timeInitial = time.time()  # Use time.time() to get the current time in seconds
+
+        # # Calculate the end time by adding the duration to the initial time
+        # end_time = timeInitial + duration_seconds
+        # middle_time=timeInitial + (duration_seconds/2)
+
+        # Loop while the current time is less than the end time
+        while True:
+            try:
+                    elem=self.get_element(element,timeout=1)
+                    if elem is None:
+                        raise ValueError("Error element is None")
+                    else:    
+                        return elem
+            except:
+                
+                if count==7:
+                    top_to_bottom= not top_to_bottom
+                
+                if top_to_bottom is True:
+                    self.swipe_helper.swipe_from_top_to_bottom(scale=0.75)
+                elif top_to_bottom is False:
+                    self.swipe_helper.swipe_from_bottom_to_top(scale=0.25)
+                count=count+1
+                # elif time.time()<middle_time:
+                #     self.swipe_helper.swipe_from_top_to_bottom(scale=0.75)
+                # else:
+                #     self.swipe_helper.swipe_from_bottom_to_top(scale=0.25)
+                                        
+        print(f"ERROR can't click element: {element}")
+        return False
+        
+        
+        
+        
+    @handle_exceptions
+    def click_hidden_element(self, element,top_to_bottom=True):
+        elem=self.get_hidden_element(element,top_to_bottom)
+        if elem is not False:
+            try:elem.click()
+            except: return False
+        else:
+            return False
+
+
+    @handle_exceptions
+    def send_keys(self, element, value,timeout=2,sleep=None,hidden=False,top_to_bottom=True):
+        if hidden:  elem=self.get_hidden_element(element,top_to_bottom=top_to_bottom)
+        else:       elem=self.get_element(element,timeout,sleep)
+        time.sleep(1)
+        elem.send_keys(value)
+        
+        
+        
     @handle_exceptions
     def wait_and_click_element_by_xpath(self, locator):
         wait = WebDriverWait(self.driver, 50)
@@ -115,6 +220,18 @@ class BasePage:
         time.sleep(5)
         # hide the keyboard
         self.driver.hide_keyboard()
+
+    @handle_exceptions
+    def wait_and_get_element_by_text(self, text,parent=None):
+        wait = WebDriverWait(self.driver, 5)
+        try: 
+            if parent is None: 
+                return wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, f"//*[contains(@text,'{text}')]")))
+            else:   
+                return parent.find_element(MobileBy.XPATH,"//*[contains(@text,'%s')]"%text)
+        except:
+            return False
+        
 
     @handle_exceptions     
     def close_app(self):

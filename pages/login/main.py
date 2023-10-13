@@ -1,7 +1,8 @@
 from config import Config
 from pages.base_page import BasePage
-from pages.login.login_locators import LoginPageLocators
-
+from pages.login.config import ELEMENTS
+from pages.get_started.config import ELEMENTS as GETSTARTED_ELEMENTS
+from appium.webdriver.common.appiumby import AppiumBy
 
 class LoginPage(BasePage):
     def __init__(self, driver):
@@ -14,6 +15,14 @@ class LoginPage(BasePage):
             self.login_delete_civil_id()
         else:
             self.login_to_webview()
+            
+        if self.is_element_visible(ELEMENTS.MODE_IS_NEEDED,10) is not False:
+            self.click_element(ELEMENTS.BACK)
+            self.click_element(ELEMENTS.POPUP_OK_BUTTON,3)
+            self.click_element(ELEMENTS.PJ_CONNECT_WEBVIEW,5)
+            if not self.is_element_visible(GETSTARTED_ELEMENTS.GET_STARTED_BUTTON,8):
+                raise ValueError("Error on opening webview, probably showing mode is needed.. ")
+
 
     def login_delete_civil_id(self):
         self.enter_civil_id()
@@ -26,30 +35,23 @@ class LoginPage(BasePage):
         self.click_connect_web_view_button()
 
     def login_to_webview(self):
-        print('petra')
         self.enter_civil_id()
         self.click_load_token()
         self.click_pop_up_button()
         self.click_connect_web_view_button()
 
     def enter_civil_id(self):
-        civil_id_field_locator = LoginPageLocators.CIVIL_ID_FIELD
-        self.wait_and_fill_input_field_by_id(civil_id_field_locator, Config.CIVIL_ID_NUMBER)
-
+        self.send_keys(ELEMENTS.CIVIL_ID_FIELD,Config.CIVIL_ID_NUMBER)
 
     def click_load_token(self):
-        load_token_button_locator = LoginPageLocators.LOAD_TOKEN_BUTTON
-        self.wait_and_click_element_by_id(load_token_button_locator)
+        self.click_element(ELEMENTS.LOAD_TOKEN_BUTTON)
 
     def click_delete_civil_id(self):
-        delete_button_locator = LoginPageLocators.DELETE_BUTTON
-        self.wait_and_click_element_by_id(delete_button_locator)
+        self.click_element(ELEMENTS.DELETE_BUTTON)
 
     def click_pop_up_button(self):
-        popup_ok_button_locator = LoginPageLocators.POPUP_OK_BUTTON
-        self.wait_and_click_element_by_id(popup_ok_button_locator)
+        self.click_element(ELEMENTS.POPUP_OK_BUTTON,10)
 
     def click_connect_web_view_button(self):
-        pj_connect_webview_button_locator = LoginPageLocators.PJ_CONNECT_WEBVIEW
-        self.wait_and_click_element_by_id(pj_connect_webview_button_locator)
+        self.click_element(ELEMENTS.PJ_CONNECT_WEBVIEW)
 
